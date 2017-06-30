@@ -10,6 +10,10 @@ function ConnectDB()
 
     return $pdo;
 }
+
+
+
+
 function LoginCheck($pdo)
 {
     // Controleren of Sessie variabelen bestaan
