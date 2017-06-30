@@ -21,8 +21,8 @@ body{
 }
 .info{
     z-index: 999;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     background-image: url("../info.png");
     background-size: 26px 26px;
     border: 2px solid rgba(0,0,0,0.2);
@@ -38,8 +38,8 @@ body{
 }
 .legenda{
     z-index: 999;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     background-image: url("../legenda.png");
     background-size: 26px 26px;
     border: 2px solid rgba(0,0,0,0.2);
@@ -53,6 +53,253 @@ body{
     border-radius: 5px;
     background-clip: padding-box;
 }
+.LegendaTab{
+    z-index: 999;
+    width: 100px;
+    height: 100px;
+    background-size: 26px 26px;
+    border: 2px solid rgba(0,0,0,0.2);
+    margin-top: 10px;
+    position: absolute;
+    right: 125px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-radius: 5px;
+    background-clip: padding-box;
+}
 .leaflet-retina .leaflet-control-layers-toggle {
     background-image: url(../settings.png)!important;
+    z-index: 999!important;
+}
+.leaflet-pane{
+    z-index: 0!important;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-image: url('../backgroundit.png');
+    background-size: 100% ;
+    margin: auto;
+    z-index: 999;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 500px;
+
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content */
+.modal-content2 {
+    background-image: url('../backgroundit.png');
+    background-size: 100% ;
+    margin-right: 3%;
+    float: right;
+    z-index: 999;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 10%;
+    height: 130px;
+
+}
+.close2 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.Popup{
+    z-index: 999;
+    background-image: url("../backgroundit.png");
+    background-size: 100%;
+    display: none;
+
+}
+.display{
+    background-image: url('../backgroundit.png');
+    background-size: 100% ;
+    margin: auto;
+    z-index: 999;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    height: 500px;
+    display: block!important;
+}
+.Field{
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+@media screen and (max-width: 768px) and (min-width: 320px){
+
+    .LegendaTab{
+        z-index: 999;
+        width: 100px;
+        height: 100px;
+        background-size: 26px 26px;
+        border: 2px solid rgba(0,0,0,0.2);
+        margin-top: 10px;
+        position: absolute;
+        right: 125px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-color: white;
+        border-radius: 5px;
+        background-clip: padding-box;
+    }
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(../settings.png)!important;
+        z-index: 999!important;
+    }
+    .leaflet-pane{
+        z-index: 0!important;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-image: url('../backgroundit.png');
+        background-size: 100% ;
+        margin: auto;
+        z-index: 999;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        height: 500px;
+
+    }
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .modal2 {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+    }
+
+    /* Modal Content */
+    .modal-content2 {
+        background-image: url('../backgroundit.png');
+        background-size: 100% ;
+        margin-right: 3%;
+        float: right;
+        z-index: 999;
+        padding: 2px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        width: 30%;
+        height: 130px;
+
+    }
+    .Popup{
+        z-index: 999;
+        background-image: url("../backgroundit.png");
+        background-size: 100%;
+        display: none;
+
+    }
+    .display{
+        background-image: url('../backgroundit.png');
+        background-size: 100% ;
+        margin: auto;
+        z-index: 999;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        height: 500px;
+        display: block!important;
+    }
+    .Field{
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
 }
