@@ -1,4 +1,15 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 #map {
+<<<<<<< HEAD
     height: 500px;
 }
 
+=======
+    height: 100vh;
+    width: 100%;
+}
+>>>>>>> 1d862c7a7020365ceac2bfe487808d6ecf190238
