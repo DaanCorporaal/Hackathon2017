@@ -30,35 +30,25 @@
         var latPersoon = position.coords.latitude;
         var lngPersoon = position.coords.longitude;
 
-    var greenIcon = L.icon({
-        iconUrl: 'groen.png',
 
-
-        iconSize:     [65, 65], // size of the icon
-
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-
-        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    var blauwIcon = L.icon({
+        iconUrl: 'blauw.png',
+        iconSize:     [35, 35], // size of the icon
+        iconAnchor:   [17, 35], // point of the icon which will correspond to marker's location
+        popupAnchor:  [1, -34] // point from which the popup should open relative to the iconAnchor
     });
-
+    var me = L.layerGroup();
+    var event = L.layerGroup();
     var cities = L.layerGroup();
-
-        L.marker([latPersoon, lngPersoon],{icon: greenIcon}).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(cities),
-        L.marker([39.61, -105.02]).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(cities),
-        L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
-        L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
-        L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities),
-        L.circle([39.61, -105.02], {
-            color: 'blue',
-            fillColor: 'blue',
-            fillOpacity: 0.5,
-            radius: 1000
-        }).addTo(cities);
+        L.circle([latPersoon, lngPersoon], {color: '#9df441',fillColor: '#9df441',fillOpacity: 0.4,radius: 1000}).addTo(me),
+        L.circle([51.69682, 5.29335], {color: '#f47c41',fillColor: '#f47c41',fillOpacity: 0.4,radius: 300}).bindPopup('Kermis').addTo(event),
+        L.marker([51.69682, 5.29335],{icon: blauwIcon}).bindPopup('This is Denver, CO.').addTo(cities),
+        L.marker([51.7670003, 5.498402400000032],{icon: blauwIcon}).bindPopup('This is Denver, CO.').addTo(cities);
 
 
-    var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+
+
+    var mbAttr =  '',
         mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZGFhbmNvcnBvcmFhbCIsImEiOiJjajRqcHZ3aWswZzRuMzJzZWV6NTVudWNoIn0.2HkU7BZBUnYb9QnHjrGmNQ';
 
     var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
@@ -69,8 +59,8 @@
         console.log(lngPersoon);
         var map = L.map('map', {
             center: [latPersoon, lngPersoon],
-            zoom: 9,
-            layers: [streets, cities]
+            zoom: 14,
+            layers: [streets, cities , me , event]
         });
 
 
@@ -81,7 +71,9 @@
         };
 
         var overlays = {
-            "Problems": cities
+            "Problems": cities,
+            "Ik": me,
+            "Event": event
         };
 
 
