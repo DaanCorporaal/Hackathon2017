@@ -1,5 +1,5 @@
 hackathon 2017 
-Daan<3
+Daan
 Gerben
 Owen
 Noah
