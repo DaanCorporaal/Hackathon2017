@@ -13,11 +13,23 @@
     <link rel="stylesheet" href="Css/base.css" />
 
 </head>
-<body>
+<body onload="getLocation()">
 
 <div id='map'></div>
-
+<p id="demo"></p>
 <script>
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        var latPersoon = position.coords.latitude;
+        var lngPersoon = position.coords.longitude;
+
     var greenIcon = L.icon({
         iconUrl: 'groen.png',
 
@@ -31,7 +43,7 @@
 
     var cities = L.layerGroup();
 
-        L.marker([39.61, -105.02],{icon: greenIcon}).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(cities),
+        L.marker([latPersoon, lngPersoon],{icon: greenIcon}).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(cities),
         L.marker([39.61, -105.02]).bindPopup("<b>Hello world!</b><br>I am a popup.").addTo(cities),
         L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
         L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
@@ -52,40 +64,53 @@
     var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
         streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
 
-    var map = L.map('map', {
-        center: [39.73, -104.99],
-        zoom: 9,
-        layers: [streets, cities]
-    });
 
-    var baseLayers = {
-        "Streets": streets,
-        "Grayscale": grayscale
-
-    };
-
-    var overlays = {
-        "Problems": cities
-    };
+        console.log(latPersoon);
+        console.log(lngPersoon);
+        var map = L.map('map', {
+            center: [latPersoon, lngPersoon],
+            zoom: 9,
+            layers: [streets, cities]
+        });
 
 
-    L.control.layers(baseLayers, overlays).addTo(map);
+        var baseLayers = {
+            "Streets": streets,
+            "Grayscale": grayscale
 
-    var popup = L.popup();
+        };
 
-    function onMapClick(e) {
-        console.log(e.latlng);
-        popup
-            .setLatLng(e.latlng)
-            .setContent(e.latlng.toString())
-            .openOn(map);
-        console.log(e.latlng.lat);
+        var overlays = {
+            "Problems": cities
+        };
+
+
+        L.control.layers(baseLayers, overlays).addTo(map);
+
+        var popup = L.popup();
+
+
+        function onMapClick(e) {
+            console.log(e.latlng);
+            popup
+                .setLatLng(e.latlng)
+                .setContent(e.latlng.toString())
+                .openOn(map);
+
+            var latKlacht = e.latlng.lat;
+            var lngKlacht = e.latlng.lng;
+
+
+            var latDifference = latKlacht - window.latPersoon;
+            var lngDifference = lngKlacht - window.lngPersoon;
+
+            console.log(latDifference, lngDifference);
+
+        }
+
+        map.on('click', onMapClick);
     }
-
-    map.on('click', onMapClick);
 </script>
-
-
 
 </body>
 </html>
