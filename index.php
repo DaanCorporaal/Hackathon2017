@@ -20,6 +20,7 @@
     <h1>Test<3</h1>
 </div>
 <div class="info"></div>
+<div class="legenda"></div>
 <div id='map'></div>
 <script>
 
