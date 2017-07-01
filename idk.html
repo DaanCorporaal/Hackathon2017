@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form  action="">
+<form method="POST" action="">
     <h2>Klacht Soort</h2>
     <label for="select">
-        <select id="select" name="klachtSoort">
+        <select id="select" class="custom-select" name="klachtSoort">
+            <option selected>Kies een klacht</option>
             <option value="geluidsOverlast">Geluids Overlast</option>
             <option value="geurOverlast">Geur Overlast</option>
             <option value="hangJongeren">Hang Jongeren</option>
@@ -17,8 +18,9 @@
     </label>
     <h2>Klacht Beschrijving</h2>
     <label for="textarea">
-        <textarea id="textarea" name="klachtDesc"></textarea>
+        <textarea id="textarea" class="form-control" name="klachtDesc"></textarea>
     </label>
+    <input type="submit" name="submit" value="Verstuur"/>
 </form>
 </body>
 </html>
